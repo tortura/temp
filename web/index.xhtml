@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="./resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <title>Temperature</title>
+    </h:head>
+    <h:body>
+        <div id="top" class="top">
+            <ui:insert name="top">What is it?</ui:insert>
+        </div>
+
+    <div id="content" class="center_content">
+    <ui:insert name="content">
+        <p>A measure of warmth or coldness of an object or substance with reference to some standard value.
+           The temperature of two systems is the same when the systems are in thermal equilibrium.</p>
+        
+
+            <p:accordionPanel>
+                <p:tab title="Convert Celsius to Fahrenheit">
+                <h:form>
+                    <label for="celsiusInput">Celsius: </label>
+                    <h:inputText id="celsiusInput"
+                                 title="Degrees Celsius"
+                                 value="#{tempConvert.celsiusStr}"></h:inputText>
+
+                    <p>Degrees Fahrenheit: #{tempConvert.fahrenheitStr}</p>
+
+                    <h:commandButton id="celciusButton" value="Calculate Fahrenheit" action="fahrResponse.xhtml" />
+                </h:form>
+                </p:tab>
+                
+                <p:tab title="Convert Fahrenheit to Celsius">
+                <h:form>
+                    <label for="fahrInput">Fahrenheit: </label>
+                    <h:inputText id="fahrInput"
+                                 title="Degrees Fahrenheit"
+                                 value="#{tempConvert.fahrenheitStr}"></h:inputText>
+
+                    <p>Degrees Celsius: #{tempConvert.celsiusStr}</p>
+
+                    <h:commandButton id="fahrButton" value="Calculate Celsius" action="celsiusResponse.xhtml" />
+                </h:form>
+
+                </p:tab>
+             </p:accordionPanel>
+
+    </ui:insert>
+    </div>
+    </h:body>
+</html>
+
